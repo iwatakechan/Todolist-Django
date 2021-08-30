@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="alert alert-dark" role="alert">
+  detail
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="alert alert-success" role="alert">
+  {{ object.title }}
+</div>
+<div class="alert alert-success" role="alert">
+  {{ object.memo }}
+</div>
+<div class="alert alert-success" role="alert">
+  優先度 {{ todo.get_priority_display }}
+</div>
+<div class="alert alert-success" role="alert">
+  {{ object.createdate }}
+</div>
+
+<a href="{% url 'list' %}" class="btn btn-success mb-3" tabindex="-1" role="button" aria-disabled="true">戻る</a>
+
+{% endblock content %}

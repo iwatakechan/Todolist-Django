@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="alert alert-secondary fluid" role="alert">
+  <div class="container">
+    <h1 class="display-4">To-do-List</h1>
+    <p class="lead">Todolistを作成して生産的な毎日を過ごしましょう</p>
+  </div>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="container">
+  <a href="{% url 'create' %}" class="btn btn-success mb-3" tabindex="-1" role="button" aria-disabled="true">新規作成</a>
+  {%for item in object_list %}
+  <div class="alert alert-{{ item.priority }}" role="alert">
+    <p>{{ item.title }} 期日: {{ item.createdate | date:"o/n/j "}}</p>
+    <a href="{% url 'update' item.pk %}" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">編集画面</a>
+    <a href="{% url 'delete' item.pk %}" class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">削除画面</a>
+    <a href="{% url 'detail' item.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細画面</a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}

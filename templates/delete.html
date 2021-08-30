@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action='' method='POST'>
+  {% csrf_token %}
+  <input type='submit' value='delete'>
+</form>
+
+<a href="{% url 'list' %}" class="btn btn-success mt-3" tabindex="-1" role="button" aria-disabled="true">戻る</a>
+{% endblock content %}
